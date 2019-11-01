@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WholeKitAndCaboodle", "WholeKitAndCaboodle\WholeKitAndCaboodle.csproj", "{6E320789-A472-4B79-8C38-73DAB319D559}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WholeKitAndCaboodleTest", "WholeKitAndCaboodleTest\WholeKitAndCaboodleTest.csproj", "{ABC258D6-3ABA-4B9E-B813-8AEA66F6CC54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E320789-A472-4B79-8C38-73DAB319D559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E320789-A472-4B79-8C38-73DAB319D559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E320789-A472-4B79-8C38-73DAB319D559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E320789-A472-4B79-8C38-73DAB319D559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC258D6-3ABA-4B9E-B813-8AEA66F6CC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC258D6-3ABA-4B9E-B813-8AEA66F6CC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC258D6-3ABA-4B9E-B813-8AEA66F6CC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC258D6-3ABA-4B9E-B813-8AEA66F6CC54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
