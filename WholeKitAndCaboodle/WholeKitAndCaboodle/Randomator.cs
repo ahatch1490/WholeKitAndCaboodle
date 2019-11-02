@@ -7,10 +7,12 @@ namespace WholeKitAndCaboodle
     public class Randomator
     {
         private readonly AddressService _addressService;
+        private readonly UserProfileService _userProfileService;
         private readonly RandomNumberGenerator _randomNumberGenerator;
         public Randomator()
         {
            _addressService = new AddressService();
+           _userProfileService = new UserProfileService();
            _randomNumberGenerator = new RandomNumberGenerator();
         }
         public int GetRandomIntegerBetween(Range range)
@@ -36,6 +38,16 @@ namespace WholeKitAndCaboodle
         public AddressUS GetUsAddress()
         {
             return _addressService.GetUsAddresses(1).First();
+        }
+
+        public UserProfile GetUserProfile()
+        {
+            return _userProfileService.GetUserProfiles(1).First();
+        }
+
+        public List<UserProfile> GetUserProfiles(int size)
+        {
+            return _userProfileService.GetUserProfiles(size);
         }
     }
 }

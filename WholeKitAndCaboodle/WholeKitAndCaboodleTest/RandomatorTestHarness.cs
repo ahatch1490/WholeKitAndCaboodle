@@ -32,7 +32,29 @@ namespace WholeKitAndCaboodleTest
         }
 
         [Fact]
+        public void ShouldReturnUsAddressList()
+        {
+            var actual = _randomator.GetUsAddresses(100);
+            actual.Count.ShouldBe(100);
+        }
+
+        [Fact]
         public void ShouldReturnAddress()
+        {
+            var actual = _randomator.GetUsAddress();
+            actual.ShouldNotBeNull();
+            
+        }
+        
+        [Fact]
+        public void ShouldReturnUserProfileList()
+        {
+            var actual = _randomator.GetUserProfiles(99);
+            actual.Count.ShouldBe(99);
+        }
+
+        [Fact]
+        public void ShouldReturnAProfile()
         {
             var actual = _randomator.GetUsAddress();
             actual.ShouldNotBeNull();

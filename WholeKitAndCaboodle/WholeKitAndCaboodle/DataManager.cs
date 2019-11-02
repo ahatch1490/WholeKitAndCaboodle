@@ -24,6 +24,20 @@ namespace WholeKitAndCaboodle
 
             return address;
         }
+        
+        public List<UserProfile> GetProcfiles()
+        {
+            var profiles = new List<UserProfile>();
+            var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
+            Stream resource = assembly.GetManifestResourceStream("WholeKitAndCaboodle.data.profile.json");
+            using (var reader =
+                new System.IO.StreamReader(resource ?? throw new NullReferenceException("unable to locate profile")))
+            {
+                var json = reader.ReadToEnd();
+                profiles = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserProfile>>(json);
+            }
 
+            return profiles;
+        }
     }
 }

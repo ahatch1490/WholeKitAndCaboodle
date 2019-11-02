@@ -12,5 +12,13 @@ namespace WholeKitAndCaboodleTest
             var addresses = d.GetAddressesDataUS();
             addresses.ShouldNotBeEmpty();
         }
+        
+        [Fact]
+        public void BeAbleToGetProfileData()
+        {
+            var d = new DataManager();
+            var profiles = d.GetProcfiles();
+            profiles.ShouldNotBeEmpty();
+        }
     }
 }
