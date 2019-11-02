@@ -30,6 +30,14 @@ namespace WholeKitAndCaboodleTest
             var randomNumbers = _randomator.GetListOfNumbers(size, new Range(1, 10));
             randomNumbers.ShouldAllBe((x) => x < 11 && x > 0);
         }
+
+        [Fact]
+        public void ShouldReturnAddress()
+        {
+            var actual = _randomator.GetUsAddress();
+            actual.ShouldNotBeNull();
+            
+        }
         
     }
 }

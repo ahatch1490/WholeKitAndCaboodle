@@ -8,7 +8,9 @@ namespace WholeKitAndCaboodle
 {
     public class DataManager
     {
-        public List<AddressUS> GetAddressData()
+        private static List<AddressUS> USAddresses { get; set; }
+
+        public List<AddressUS> GetAddressesDataUS()
         {
             var address = new List<AddressUS>();
             var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
@@ -22,5 +24,6 @@ namespace WholeKitAndCaboodle
 
             return address;
         }
+
     }
 }

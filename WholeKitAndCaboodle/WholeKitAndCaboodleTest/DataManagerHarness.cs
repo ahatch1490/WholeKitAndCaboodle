@@ -9,7 +9,7 @@ namespace WholeKitAndCaboodleTest
         public void BeAbleToGetAddressData()
         {
             var d = new DataManager();
-            var addresses = d.GetAddressData();
+            var addresses = d.GetAddressesDataUS();
             addresses.ShouldNotBeEmpty();
         }
     }
