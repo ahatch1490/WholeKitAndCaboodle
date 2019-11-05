@@ -9,7 +9,7 @@ namespace WholeKitAndCaboodle
     public class DataManager
     {
         private static List<AddressUS> USAddresses { get; set; }
-
+        private static MemoryStream inMemoryCopy = new MemoryStream();
         public List<AddressUS> GetAddressesDataUS()
         {
             var address = new List<AddressUS>();
@@ -35,6 +35,22 @@ namespace WholeKitAndCaboodle
             {
                 var json = reader.ReadToEnd();
                 profiles = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserProfile>>(json);
+            }
+
+            return profiles;
+        }
+        
+        private List<UserProfile> GetData()
+        {
+            var profiles = new List<UserProfile>();
+            var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
+            Stream resource = assembly.GetManifestResourceStream("WholeKitAndCaboodle.data.basedata.json");
+            using (var reader =
+                new System.IO.StreamReader(resource ?? throw new NullReferenceException("unable to locate profile")))
+            {
+                
+                resource.CopyTo(inMemoryCopy);
+
             }
 
             return profiles;

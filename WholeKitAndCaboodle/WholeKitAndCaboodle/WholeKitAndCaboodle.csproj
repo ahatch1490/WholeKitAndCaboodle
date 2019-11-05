@@ -9,6 +9,8 @@
       <EmbeddedResource Include="data\us_address.json" />
       <None Remove="data\profile.json" />
       <EmbeddedResource Include="data\profile.json" />
+      <None Remove="data\basedata.json" />
+      <EmbeddedResource Include="data\basedata.json" />
     </ItemGroup>
 
     <ItemGroup>
