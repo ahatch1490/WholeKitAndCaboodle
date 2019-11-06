@@ -24,8 +24,13 @@ namespace WholeKitAndCaboodle
 
             return address;
         }
+
+        public string GetDataReader()
+        {
+            return new StreamReader(inMemoryCopy).ReadToEnd();
+        }
         
-        public List<UserProfile> GetProcfiles()
+        public List<UserProfile> GetProfiles()
         {
             var profiles = new List<UserProfile>();
             var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
@@ -47,10 +52,8 @@ namespace WholeKitAndCaboodle
             Stream resource = assembly.GetManifestResourceStream("WholeKitAndCaboodle.data.basedata.json");
             using (var reader =
                 new System.IO.StreamReader(resource ?? throw new NullReferenceException("unable to locate profile")))
-            {
-                
+            {                
                 resource.CopyTo(inMemoryCopy);
-
             }
 
             return profiles;

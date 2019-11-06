@@ -17,7 +17,7 @@ namespace WholeKitAndCaboodleTest
         public void BeAbleToGetProfileData()
         {
             var d = new DataManager();
-            var profiles = d.GetProcfiles();
+            var profiles = d.GetProfiles();
             profiles.ShouldNotBeEmpty();
         }
     }
