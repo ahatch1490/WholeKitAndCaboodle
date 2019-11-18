@@ -20,5 +20,17 @@ namespace WholeKitAndCaboodleTest
             var profiles = d.GetProfiles();
             profiles.ShouldNotBeEmpty();
         }
+
+        [Fact]
+        public void BeAbleToReuseMemoryStream()
+        {
+            var d = new DataManager();
+            for (var i = 0; i < 10; i++)
+            {
+                var data = d.GetRawData();
+                data.ShouldNotBeNull();
+                data.ShouldNotBeEmpty();
+            }
+        }
     }
 }

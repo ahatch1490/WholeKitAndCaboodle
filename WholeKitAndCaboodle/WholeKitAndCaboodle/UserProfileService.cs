@@ -34,23 +34,23 @@ namespace WholeKitAndCaboodle
             return addresses;
         }
 
-        public string FirstName()
-        {
-            if (FirstNames != null)
-            {
-                var index = _randomNumberGenerator.GetRandomIntegerBetween(_profilesRange.Start, _profilesRange.End);
-                return FirstNames[index];
-            }
-        }
+//        public string FirstName()
+//        {
+//            if (FirstNames != null)
+//            {
+//                var index = _randomNumberGenerator.GetRandomIntegerBetween(_profilesRange.Start, _profilesRange.End);
+//                return FirstNames[index];
+//            }
+//        }
 
-        public string LastName()
-        {
-            
-        }
-
-        public string Username()
-        {
-            
-        }
+//        public string LastName()
+//        {
+//            
+//        }
+//
+//        public string Username()
+//        {
+//            
+//        }
     }
 }

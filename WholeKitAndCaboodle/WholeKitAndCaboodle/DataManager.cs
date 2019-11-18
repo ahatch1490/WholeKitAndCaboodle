@@ -2,14 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Xml;
 using Newtonsoft.Json;
 namespace WholeKitAndCaboodle
 {
-    public class DataManager
+    public class DataManager: IDisposable
     {
-        private static List<AddressUS> USAddresses { get; set; }
-        private static MemoryStream inMemoryCopy = new MemoryStream();
+        private  List<AddressUS> USAddresses { get; set; }
+        private  MemoryStream inMemoryCopy = new MemoryStream();
+
+        public  DataManager()
+        {
+            BuildMemoryStream();
+        }
         public List<AddressUS> GetAddressesDataUS()
         {
             var address = new List<AddressUS>();
@@ -25,9 +31,11 @@ namespace WholeKitAndCaboodle
             return address;
         }
 
-        public string GetDataReader()
+        public string GetRawData()
         {
+            inMemoryCopy.Position = 0;
             return new StreamReader(inMemoryCopy).ReadToEnd();
+          
         }
         
         public List<UserProfile> GetProfiles()
@@ -57,6 +65,30 @@ namespace WholeKitAndCaboodle
             }
 
             return profiles;
+        }
+
+        public List<T> GeData<T>()
+        {
+            
+        }
+        public void Dispose()
+        {
+            inMemoryCopy.Close();
+            inMemoryCopy = null;
+        }
+
+        private void BuildMemoryStream()
+        {
+            var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
+            using (Stream resource = assembly.GetManifestResourceStream("WholeKitAndCaboodle.data.us_address.json"))
+            {
+                using (var reader =
+                    new System.IO.StreamReader(resource ?? throw new NullReferenceException("unable to locate data")))
+                {                
+                    resource.CopyTo(inMemoryCopy);
+                    inMemoryCopy.Position = 0;
+                }
+            };
         }
     }
 }
