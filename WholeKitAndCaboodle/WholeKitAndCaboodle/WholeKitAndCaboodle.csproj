@@ -11,6 +11,10 @@
       <EmbeddedResource Include="data\profile.json" />
       <None Remove="data\basedata.json" />
       <EmbeddedResource Include="data\basedata.json" />
+      <None Remove="data\first-last.csv" />
+      <EmbeddedResource Include="data\FirstNameLastName.csv" />
+      <None Remove="data\email.csv" />
+      <EmbeddedResource Include="data\Email.csv" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,10 +1,8 @@
 ﻿using System;
 namespace WholeKitAndCaboodle
 {
-    public class IDataManager
+    public interface IDataManager
     {
-        public IDataManager()
-        {
-        }
+         string GetData(DataType dataType);
     }
 }

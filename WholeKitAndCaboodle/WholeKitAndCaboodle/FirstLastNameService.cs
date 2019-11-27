@@ -4,14 +4,14 @@ using System.Linq;
 
 namespace WholeKitAndCaboodle
 {
-    public class PersonalInfoService
+    public class FirstLastNameService
     {
         private readonly IRandomNumberGenerator _randomNumberGenerator;
         private readonly IDataManager _dataManager;
         private List<string> _firstNames = new List<string>();
         private List<string> _lastnames = new List<string>();
 
-        public PersonalInfoService(IDataManager dataManager, IRandomNumberGenerator randomNumberGenerator)
+        public FirstLastNameService(IDataManager dataManager, IRandomNumberGenerator randomNumberGenerator)
         {
             _dataManager = dataManager;
             _randomNumberGenerator = randomNumberGenerator;

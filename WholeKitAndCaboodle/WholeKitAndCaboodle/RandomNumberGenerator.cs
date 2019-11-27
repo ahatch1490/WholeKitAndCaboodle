@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace WholeKitAndCaboodle
 {
-    public class RandomNumberGenerator
+    public class RandomNumberGenerator: IRandomNumberGenerator
     {
         public int GetRandomIntegerBetween(int first, int second)
         {

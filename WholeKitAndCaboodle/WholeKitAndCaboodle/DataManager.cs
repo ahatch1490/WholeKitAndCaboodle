@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Xml;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 namespace WholeKitAndCaboodle
 {
-    public class DataManager: IDisposable
+    public class DataManager: IDisposable, IDataManager
     {
         private  List<AddressUS> USAddresses { get; set; }
         private  MemoryStream inMemoryCopy = new MemoryStream();
@@ -16,6 +19,12 @@ namespace WholeKitAndCaboodle
         {
             BuildMemoryStream();
         }
+
+        public string GetData(DataType dataType)
+        {
+            return GetDataString(dataType);
+        }
+
         public List<AddressUS> GetAddressesDataUS()
         {
             var address = new List<AddressUS>();
@@ -66,10 +75,13 @@ namespace WholeKitAndCaboodle
 
             return profiles;
         }
-
-        public List<T> GeData<T>()
+        
+        public List<string> GetDataAttribute(string attribute)
         {
-            
+            var json = GetRawData();
+            JObject rss = JObject.Parse(json);
+            return ((JArray) rss[attribute]).Select(x => (string) x).ToList();
+
         }
         public void Dispose()
         {
@@ -88,7 +100,22 @@ namespace WholeKitAndCaboodle
                     resource.CopyTo(inMemoryCopy);
                     inMemoryCopy.Position = 0;
                 }
-            };
+            }
         }
+
+        private string GetDataString(DataType dataType)
+        {
+            var data = string.Empty;
+            var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
+            Stream resource = assembly.GetManifestResourceStream($"WholeKitAndCaboodle.data.{dataType.ToString()}.csv");
+            using (var reader =
+                new System.IO.StreamReader(resource ?? throw new NullReferenceException($"unable to locate '{dataType.ToString()}'")))
+            {
+                data = reader.ReadToEnd();
+            }
+            
+            return data;
+        }
+
     }
 }
