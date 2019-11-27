@@ -1,9 +1,9 @@
 ﻿using System;
 namespace WholeKitAndCaboodle
 {
-    public class IDataManager
+    public class EmailService
     {
-        public IDataManager()
+        public EmailService()
         {
         }
     }

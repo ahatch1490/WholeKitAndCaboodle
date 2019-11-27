@@ -24,23 +24,12 @@ namespace WholeKitAndCaboodleTest
         [Fact]
         public void BeAbleToReuseMemoryStream()
         {
-            using (var d = new DataManager())
+            var d = new DataManager();
+            for (var i = 0; i < 10; i++)
             {
-                for (var i = 0; i < 10; i++)
-                {
-                    var data = d.GetRawData();
-                    data.ShouldNotBeNull();
-                    data.ShouldNotBeEmpty();
-                }
-            }
-        }
-
-        [Fact]
-        public void ShouldReturnStringOfData()
-        {
-            using (var manager = new DataManager())
-            {
-                manager.GetData(DataType.FirstNameLastName).ShouldNotBeEmpty();
+                var data = d.GetRawData();
+                data.ShouldNotBeNull();
+                data.ShouldNotBeEmpty();
             }
         }
     }
