@@ -43,5 +43,23 @@ namespace WholeKitAndCaboodleTest
                 manager.GetData(DataType.FirstNameLastName).ShouldNotBeEmpty();
             }
         }
+
+        [Fact]
+        public void ShouldEmailReturnStringOfData()
+        {
+            using (var manager = new DataManager())
+            {
+                manager.GetData(DataType.Email).ShouldNotBeEmpty();
+            }
+        }
+
+        [Fact]
+        public void ShouldVehicleReturnStringOfData()
+        {
+            using (var manager = new DataManager())
+            {
+                manager.GetData(DataType.Vehicle).ShouldNotBeEmpty();
+            }
+        }
     }
 }
