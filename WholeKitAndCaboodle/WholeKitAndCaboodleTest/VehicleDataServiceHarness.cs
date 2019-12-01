@@ -3,6 +3,7 @@ using Moq;
 using Xunit;
 using WholeKitAndCaboodle;
 using Shouldly;
+using System.Linq;
 
 namespace WholeKitAndCaboodleTest
 {
@@ -22,6 +23,41 @@ namespace WholeKitAndCaboodleTest
             var service = new VehicleDataService(_dataManager.Object, _randomNumberGenerator.Object);
             _dataManager.Setup(x => x.GetData(DataType.Vehicle)).Returns(data);
             service.GetVehicleData().ShouldNotBeEmpty();
+        }
+
+        [Fact]
+        public void ShouldReturnAListOfUniqueVinNumbers()
+        {
+            var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator());
+            var actual = service.GetVehicleData(100);
+            actual.Count.ShouldBe(100);
+        }
+
+        [Fact]
+        public void ShouldBeUniqueByVin()
+        {
+            var expected = 100;
+            var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator());
+            var actual = service.GetVehicleData(expected);
+            actual.Select(x => x.Vin).ShouldBeUnique();
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionWhenMaxCountReached()
+        {
+            var threwException = false;
+            try
+            {
+                var expected = 10000000;
+                var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator());
+                var actual = service.GetVehicleData(expected);
+            }
+            catch(MaxVehicleRangeException)
+            {
+                threwException = true;
+            }
+
+            Assert.True(threwException, "Should have thrown MaxVehicleRangeException");
         }
     }
 }
