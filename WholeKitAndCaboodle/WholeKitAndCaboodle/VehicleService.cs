@@ -50,8 +50,13 @@ namespace WholeKitAndCaboodle
             var uniqueIds = new List<string>();
             foreach (var c in rows)
             {
+                if (c.Length == 0)
+                {
+                    continue;
+                }
+                
                 var f = c.Split(',');
-                var baseVin = f[0].Substring(0, 10);
+                var baseVin = f[0].Length < 10 ? f[0] : f[0].Substring(0, 10);
                 var id = RandomVinId();
                 var vin = baseVin + id;
                 var count = 0;
@@ -60,7 +65,7 @@ namespace WholeKitAndCaboodle
                     id = RandomVinId();
                     vin = baseVin + id;
                     count++;
-                    if (count < MAX_VALUE)
+                    if (count > MAX_VALUE)
                     {
                         throw new MaxVehicleRangeException($"Max unique count reached {MAX_VALUE}.");
                     }
