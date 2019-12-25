@@ -32,32 +32,32 @@ namespace WholeKitAndCaboodleTest
             actual.Count.ShouldBe(100);
         }
 
-        [Fact]
-        public void ShouldBeUniqueByVin()
-        {
-            const int expected = 100;
-            var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator());
-            var actual = service.GetVehicleData(expected);
-            actual.Select(x => x.Vin).ShouldBeUnique();
-        }
-
-        [Fact]
-        public void ShouldThrowExceptionWhenMaxCountReached()
-        {
-            var threwException = false;
-            try
-            {
-                const int expected = 10000000;
-                var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator());
-                var actual = service.GetVehicleData(expected);
-            }
-            catch(MaxVehicleRangeException)
-            {
-                threwException = true;
-            }
-
-            Assert.True(threwException, "Should have thrown MaxVehicleRangeException");
-        }
+//        [Fact]
+//        public void ShouldBeUniqueByVin()
+//        {
+//            const int expected = 100;
+//            var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator());
+//            var actual = service.GetVehicleData(expected);
+//            actual.Select(x => x.Vin).ShouldBeUnique();
+//        }
+//
+//        [Fact]
+//        public void ShouldThrowExceptionWhenMaxCountReached()
+//        {
+//            var threwException = false;
+//            try
+//            {
+//                const int invalidCount = 10000000;
+//                var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator());
+//                var actual = service.GetVehicleData(invalidCount);
+//            }
+//            catch(MaxVehicleRangeException)
+//            {
+//                threwException = true;
+//            }
+//
+//            Assert.True(threwException, "Should have thrown MaxVehicleRangeException");
+//        }
     }
 }
 
