@@ -22,7 +22,7 @@ namespace WholeKitAndCaboodle
         /// Returns the complete list of vehicles
         /// </summary>
         /// <returns></returns>
-        protected VehicleData  GetVehicleData()
+        public VehicleData  GetVehicleData()
         {
             var index = _randomNumberGenerator.GetRandomIntegerBetween(0, _vehicleData.Count);
             var v = _vehicleData[index];
