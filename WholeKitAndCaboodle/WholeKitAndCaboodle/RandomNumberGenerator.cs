@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace WholeKitAndCaboodle
 {
@@ -18,6 +19,15 @@ namespace WholeKitAndCaboodle
                 list.Add(  this.GetRandomIntegerBetween(range.Start, range.End));
             }
             return list;
+        }
+
+        public char GetRandomLetterUpper()
+        {
+            return (char) this.GetRandomIntegerBetween(65,90);
+        }
+        public char GetRandomLetterLower()
+        {
+            return (char) this.GetRandomIntegerBetween(97,122);
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace WholeKitAndCaboodle
 {
     public class VehicleDataService
     {
-        private const int MAX_VALUE = 999999;
+        private const int MAX_VALUE = 99999;
         private readonly IDataManager _dataManager;
         private readonly IRandomNumberGenerator _randomNumberGenerator;
         //"VIN",Mileage,Year,"Make","Model",SuggestedWholesale,SuggestedRetail,PremiumFactor,"TrimLevel","Problem"
@@ -21,16 +22,19 @@ namespace WholeKitAndCaboodle
         /// Returns the complete list of vehicles
         /// </summary>
         /// <returns></returns>
-        public List<VehicleData> GetVehicleData()
+        protected VehicleData  GetVehicleData()
         {
-            return _vehicleData;
+            var index = _randomNumberGenerator.GetRandomIntegerBetween(0, _vehicleData.Count);
+            var v = _vehicleData[index];
+            v.Vin = $"{v.Vin.Substring(0,v.Vin.Length - 6 )}{RandomProductionNumber()}";
+            return v;
         }
         /// <summary>
         /// Returns a specified count of random vehicles.
         /// </summary>
         /// <param name="count">number of vehicles to return</param>
         /// <returns></returns>
-        public List<VehicleData> GetVehicleData(int count)
+        public List<VehicleData> GetListOfVehicleData(int count)
         {
             var r = new Range(0, _vehicleData.Count - 1);
             var returnList = new List<VehicleData>();
@@ -56,25 +60,9 @@ namespace WholeKitAndCaboodle
                 }
                 
                 var f = c.Split(',');
-                var baseVin = f[0].Length < 10 ? f[0] : f[0].Substring(0, 10);
-                var id = RandomVinId();
-                var vin = baseVin + id;
-                var count = 0;
-                while(uniqueIds.Contains(vin) && count < MAX_VALUE)
-                {
-                    id = RandomVinId();
-                    vin = baseVin + id;
-                    count++;
-                    if (count > MAX_VALUE)
-                    {
-                        throw new MaxVehicleRangeException($"Max unique count reached {MAX_VALUE}.");
-                    }
-                }
-                uniqueIds.Add(vin);
-
 
                 var v = new VehicleData() {
-                    Vin = vin,
+                    Vin = f[0],
                     Milage = f[1],
                     Year = f[2],
                     Make = f[3],
@@ -86,16 +74,17 @@ namespace WholeKitAndCaboodle
 
         }
 
-        private string RandomVinId()
+        private string RandomProductionNumber()
         {
             var id = _randomNumberGenerator.GetRandomIntegerBetween(1, MAX_VALUE);
+            var alpha = _randomNumberGenerator.GetRandomLetterUpper();
             var strId = string.Empty;
-            if(id > 99999)
+            if(id > MAX_VALUE)
             {
-                strId = id.ToString();
+                strId = $"{alpha}{id.ToString()}";
             }
 
-            if(id < 99999)
+            if(id < 9999)
             {
                 if (id < 1000)
                 {
@@ -103,22 +92,22 @@ namespace WholeKitAndCaboodle
                     {
                         if (id < 10)
                         {
-                            strId = $"00000{id}";
+                            strId = $"{alpha}0000{id}";
                         }
                         else
                         {
-                            strId = $"000{id}";
+                            strId = $"{alpha}00{id}";
                         }
                     }
                     else
                     {
-                        strId = $"00{id}";
+                        strId = $"{alpha}0{id}";
                     }
                 }
             }
             else
             {
-                strId = $"0{id}";
+                strId = $"{alpha}{id}";
             }
            
             return strId;
