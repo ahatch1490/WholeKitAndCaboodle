@@ -24,7 +24,7 @@ namespace WholeKitAndCaboodle
         /// <returns></returns>
         public VehicleData  GetVehicleData()
         {
-            var index = _randomNumberGenerator.GetRandomIntegerBetween(0, _vehicleData.Count);
+            var index = _randomNumberGenerator.GetRandomIntegerBetween(0, _vehicleData.Count -1);
             var v = _vehicleData[index];
             v.Vin = $"{v.Vin.Substring(0,v.Vin.Length - 6 )}{RandomProductionNumber()}";
             return v;
@@ -86,23 +86,14 @@ namespace WholeKitAndCaboodle
 
             if(id < 9999)
             {
-                if (id < 1000)
+                if (id >= 1000) return strId;
+                if (id < 100)
                 {
-                    if (id < 100)
-                    {
-                        if (id < 10)
-                        {
-                            strId = $"{alpha}0000{id}";
-                        }
-                        else
-                        {
-                            strId = $"{alpha}00{id}";
-                        }
-                    }
-                    else
-                    {
-                        strId = $"{alpha}0{id}";
-                    }
+                    strId = id < 10 ? $"{alpha}0000{id}" : $"{alpha}00{id}";
+                }
+                else
+                {
+                    strId = $"{alpha}0{id}";
                 }
             }
             else
