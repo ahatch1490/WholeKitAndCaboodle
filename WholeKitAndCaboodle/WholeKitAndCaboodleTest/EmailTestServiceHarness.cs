@@ -23,5 +23,13 @@ namespace WholeKitAndCaboodleTest
             List<string> emails = service.GetEmails();
             emails.ShouldNotBeEmpty();
         }
+
+        [Fact]
+        public void ShouldReturnEmail()
+        {
+            var service = new EmailService(new DataManager(),new RandomNumberGenerator());
+            var actual = service.GetEmail(); 
+            actual.ShouldNotBeNull();
+        }
     }
 }

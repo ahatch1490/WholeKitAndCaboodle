@@ -19,7 +19,7 @@ namespace WholeKitAndCaboodleTest
         [Fact]
         public void ShouldBeAbleToGenerateVehicleData()
         {
-            var service = new VehicleDataService(_dataManager.Object, _randomNumberGenerator);
+            var service = new VehicleDataService(new DataManager(),  new RandomNumberGenerator());
             var actual = service.GetVehicleData();
             actual.ShouldNotBeNull();
             actual.Vin.ShouldNotBeEmpty();

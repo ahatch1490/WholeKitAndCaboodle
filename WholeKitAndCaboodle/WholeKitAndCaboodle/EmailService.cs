@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace WholeKitAndCaboodle
 {
@@ -13,16 +14,19 @@ namespace WholeKitAndCaboodle
         {
             _dataManager = dataManager;
             _randomNumberGenerator = randomNumberGenerator;
+            BuildList();
+        }
+
+        public string GetEmail()
+        {
+            var email = _emails[_randomNumberGenerator.GetRandomIntegerBetween(0, _emails.Count)];
+            return $"{_randomNumberGenerator.GetRandomIntegerBetween(0, 100)}_{email}";
+
         }
 
         public List<string> GetEmails()
         {
-            if(!_emails.Any())
-            {
-                BuildList();
-            }
-            return _emails;
-            
+            return _emails.Select(x => $"{_randomNumberGenerator.GetRandomIntegerBetween(0,100)}_{x}").ToList();
         }
 
         private void BuildList()
