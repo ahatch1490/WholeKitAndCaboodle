@@ -9,9 +9,29 @@ namespace WholeKitAndCaboodle
             _randomNumberGenerator = randomNumberGenerator;
         }
 
-        public string PadValue(in int length, int value)
+        public string PadValue(int length, int value)
         {
-            return "111111";
+            if (value < 0)
+            {
+                return string.Empty;
+            }
+            
+            var valueLength = value.ToString().Length;
+            var returnVal = value.ToString();
+            if (valueLength == length)
+            {
+                return value.ToString();
+            }
+            if (valueLength < length)
+            {
+                var padding =  length - valueLength;
+                
+                for(var i = 0; i < padding; i++)
+                {
+                    returnVal = "0" + returnVal;
+                }
+            }
+            return returnVal;
         }
     }
 }
