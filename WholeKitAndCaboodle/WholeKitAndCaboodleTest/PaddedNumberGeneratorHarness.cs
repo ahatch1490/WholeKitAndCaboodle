@@ -16,7 +16,7 @@ namespace WholeKitAndCaboodleTest
             var generator = new PaddedValueGenerator(_randomNumberGenerator.Object);
             int length = 6;
             int value = 111111;
-            string actual = generator.PadValue(length, value);
+            string actual = generator.PadLeftValue(length, value);
             
             actual.ShouldBe("111111");
         }
@@ -27,7 +27,7 @@ namespace WholeKitAndCaboodleTest
             var generator = new PaddedValueGenerator(_randomNumberGenerator.Object);
             int length = 6;
             int value = -1;
-            string actual = generator.PadValue(length, value);
+            string actual = generator.PadLeftValue(length, value);
             
             actual.ShouldBe("");
         }
@@ -38,21 +38,22 @@ namespace WholeKitAndCaboodleTest
             var generator = new PaddedValueGenerator(_randomNumberGenerator.Object);
             int length = 6;
             int value = 1;
-            string actual = generator.PadValue(length, value);
+            string actual = generator.PadLeftValue(length, value);
             
             actual.ShouldBe("000001");
         }
         
         [Fact]
-        public void ShouldPadToLength()
+        public void ShouldPadToLength4()
         {
             var generator = new PaddedValueGenerator(_randomNumberGenerator.Object);
-            int length = 6;
+            int length = 8;
             int value = 1111;
-            string actual = generator.PadValue(length, value);
+            string actual = generator.PadLeftValue(length, value);
             
-            actual.ShouldBe("001111");
+            actual.ShouldBe("00001111");
         }
+        
         
         
     }

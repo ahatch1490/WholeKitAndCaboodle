@@ -25,4 +25,10 @@
       <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="VehicleService.cs">
+        <DependentUpon>UserProfileService.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

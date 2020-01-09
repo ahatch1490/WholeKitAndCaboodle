@@ -9,7 +9,7 @@ namespace WholeKitAndCaboodle
             _randomNumberGenerator = randomNumberGenerator;
         }
 
-        public string PadValue(int length, int value)
+        public string PadLeftValue(int length, int value)
         {
             if (value < 0)
             {
