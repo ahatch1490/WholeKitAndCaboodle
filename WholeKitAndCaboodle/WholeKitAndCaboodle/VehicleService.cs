@@ -9,12 +9,14 @@ namespace WholeKitAndCaboodle
         private const int MAX_VALUE = 99999;
         private readonly IDataManager _dataManager;
         private readonly IRandomNumberGenerator _randomNumberGenerator;
+        private readonly IPaddingValueGenerator _paddingValueGenerator;
         //"VIN",Mileage,Year,"Make","Model",SuggestedWholesale,SuggestedRetail,PremiumFactor,"TrimLevel","Problem"
         private List<VehicleData> _vehicleData = new List<VehicleData>();
-        public VehicleDataService(IDataManager dataManager, IRandomNumberGenerator randomNumberGenerator)
+        public VehicleDataService(IDataManager dataManager, IRandomNumberGenerator randomNumberGenerator, IPaddingValueGenerator paddingValueGenerator)
         {
             _dataManager = dataManager;
             _randomNumberGenerator = randomNumberGenerator;
+            _paddingValueGenerator = paddingValueGenerator;
             BuildList();
         }
 
@@ -79,28 +81,7 @@ namespace WholeKitAndCaboodle
             var id = _randomNumberGenerator.GetRandomIntegerBetween(1, MAX_VALUE);
             var alpha = _randomNumberGenerator.GetRandomLetterUpper();
             var strId = string.Empty;
-            if(id > MAX_VALUE)
-            {
-                strId = $"{alpha}{id.ToString()}";
-            }
-
-            if(id < 9999)
-            {
-                if (id >= 1000) return strId;
-                if (id < 100)
-                {
-                    strId = id < 10 ? $"{alpha}0000{id}" : $"{alpha}00{id}";
-                }
-                else
-                {
-                    strId = $"{alpha}0{id}";
-                }
-            }
-            else
-            {
-                strId = $"{alpha}{id}";
-            }
-           
+            strId = $"{alpha}{_paddingValueGenerator.PadLeftValue(4, id)}";
             return strId;
         }
     }

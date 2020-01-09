@@ -1,6 +1,6 @@
 namespace WholeKitAndCaboodle
 {
-    public class PaddedValueGenerator
+    public class PaddedValueGenerator: IPaddingValueGenerator
     {
         private IRandomNumberGenerator _randomNumberGenerator;
 

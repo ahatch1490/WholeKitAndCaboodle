@@ -19,7 +19,7 @@ namespace WholeKitAndCaboodleTest
         [Fact]
         public void ShouldBeAbleToGenerateVehicleData()
         {
-            var service = new VehicleDataService(new DataManager(),  new RandomNumberGenerator());
+            var service = new VehicleDataService(new DataManager(),  new RandomNumberGenerator(), new PaddedValueGenerator(new RandomNumberGenerator()));
             var actual = service.GetVehicleData();
             actual.ShouldNotBeNull();
             actual.Vin.ShouldNotBeEmpty();
@@ -29,14 +29,14 @@ namespace WholeKitAndCaboodleTest
         {
             const string data = "\"Y6966Y5387050F976\",172307,2008,\"Subaru\",\"Tribeca\",10061.44,13582.95,1.47,\"Limited 5-Pass 4dr SUV AWD w/Nav (3.6L 6cyl 5A)\",\"Bad Underhood Belts/Hoses/\"";
             _dataManager.Setup(x => x.GetData(It.IsAny<DataType>())).Returns(data);
-            var service = new VehicleDataService(_dataManager.Object, _randomNumberGenerator);
+            var service = new VehicleDataService(_dataManager.Object, _randomNumberGenerator, new PaddedValueGenerator(new RandomNumberGenerator()));
             service.GetListOfVehicleData(1).ShouldNotBeEmpty();
         }
 
         [Fact]
         public void ShouldReturnAListOfUniqueVinNumbers()
         {
-            var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator());
+            var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator(),new PaddedValueGenerator(new RandomNumberGenerator()));
             var actual = service.GetListOfVehicleData(100);
             actual.Count.ShouldBe(100);
         }
