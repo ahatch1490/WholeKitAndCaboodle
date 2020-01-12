@@ -11,6 +11,7 @@ namespace WholeKitAndCaboodleTest
     {
         private Mock<IDataManager> _dataManager = new Mock<IDataManager>();
         private IRandomNumberGenerator _randomNumberGenerator = new RandomNumberGenerator();
+        
         public VehicleDataServiceHarness()
         {
          
