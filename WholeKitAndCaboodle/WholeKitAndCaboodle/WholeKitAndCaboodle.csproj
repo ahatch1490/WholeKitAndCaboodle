@@ -19,6 +19,8 @@
       </EmbeddedResource>
       <None Remove="data\Vehicle.csv" />
       <EmbeddedResource Include="data\Vehicle.csv" />
+      <None Remove="data\Streets.csv" />
+      <EmbeddedResource Include="data\Street.csv" />
     </ItemGroup>
 
     <ItemGroup>

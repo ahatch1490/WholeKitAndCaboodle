@@ -8,10 +8,12 @@ namespace WholeKitAndCaboodle
     {
         private readonly AddressService _addressService;
         private readonly UserProfileService _userProfileService;
-        private readonly RandomNumberGenerator _randomNumberGenerator;
+        private readonly IRandomNumberGenerator _randomNumberGenerator;
+        private readonly IDataManager _dataManager;
         public Randomator()
         {
-           _addressService = new AddressService();
+            _dataManager = new DataManager();
+           _addressService = new AddressService(_dataManager, _randomNumberGenerator);
            _userProfileService = new UserProfileService();
            _randomNumberGenerator = new RandomNumberGenerator();
         }
@@ -28,16 +30,6 @@ namespace WholeKitAndCaboodle
         public int GetRandomIntegerBetween(int start, int end)
         {
             return _randomNumberGenerator.GetRandomIntegerBetween(start, end);
-        }
-
-        public List<AddressUS> GetUsAddresses(int size)
-        {
-            return _addressService.GetUsAddresses(size);
-        }
-
-        public AddressUS GetUsAddress()
-        {
-            return _addressService.GetUsAddresses(1).First();
         }
 
         public UserProfile GetUserProfile()

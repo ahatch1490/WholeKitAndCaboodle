@@ -4,33 +4,21 @@ namespace WholeKitAndCaboodle
 {
     public class AddressService
     {
-        private readonly DataManager _dataManager;
+        private readonly IDataManager _dataManager;
         private readonly List<AddressUS> _addressesUs;
         private readonly Range _USAddressRange;
-        private readonly RandomNumberGenerator _randomNumberGenerator;
+        private readonly IRandomNumberGenerator _randomNumberGenerator;
+        private readonly List<string> _streetNames;
 
-        public AddressService()
+        public AddressService(IDataManager dataManager, IRandomNumberGenerator randomNumberGenerator)
         {
-            _dataManager = new DataManager();
-            _addressesUs = _dataManager.GetAddressesDataUS();
+            _dataManager = dataManager;
+            _streetNames.AddRange(dataManager.GetData(DataType.Street).Split('\n'));
             _USAddressRange = new Range(0, _addressesUs.Count - 1);
-            _randomNumberGenerator = new RandomNumberGenerator();
-
+            _randomNumberGenerator = randomNumberGenerator;
         }
         
-        public List<AddressUS> GetUsAddresses(int size)
-        {
-            var addresses = new List<AddressUS>();
-            var addressesData = _dataManager.GetAddressesDataUS();
-            
-            for (var i = 0; i < size; i++)
-            {
-                var index = _randomNumberGenerator.GetRandomIntegerBetween(_USAddressRange.Start, _USAddressRange.End);
-                addresses.Add(addressesData[index]);
-            }
-
-            return addresses;
-        }
+ 
 
         public string  GetAddressNumber()
         {
@@ -39,7 +27,8 @@ namespace WholeKitAndCaboodle
 
         public string Street()
         {
-            
+            var  index = _randomNumberGenerator.GetRandomIntegerBetween(0, 1345);
+            return "";
         }
-    }
+    }    
 }
