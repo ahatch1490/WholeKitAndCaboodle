@@ -31,6 +31,15 @@ namespace WholeKitAndCaboodle
 
             return addresses;
         }
-       
+
+        public string  GetAddressNumber()
+        {
+            return _randomNumberGenerator.GetRandomIntegerBetween(0, 9999).ToString();
+        }
+
+        public string Street()
+        {
+            
+        }
     }
 }

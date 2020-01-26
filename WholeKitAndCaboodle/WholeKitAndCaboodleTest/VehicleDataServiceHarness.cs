@@ -13,7 +13,7 @@ namespace WholeKitAndCaboodleTest
         private IRandomNumberGenerator _randomNumberGenerator = new RandomNumberGenerator();
         
         public VehicleDataServiceHarness()
-        {
+        {    
          
         }
 
@@ -41,7 +41,6 @@ namespace WholeKitAndCaboodleTest
             var actual = service.GetListOfVehicleData(100);
             actual.Count.ShouldBe(100);
         }
-
     }
 }
 
