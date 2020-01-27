@@ -5,16 +5,13 @@ namespace WholeKitAndCaboodle
     public class AddressService
     {
         private readonly IDataManager _dataManager;
-        private readonly List<AddressUS> _addressesUs;
-        private readonly Range _USAddressRange;
         private readonly IRandomNumberGenerator _randomNumberGenerator;
-        private readonly List<string> _streetNames;
+        private readonly string [] _streetNames;
 
         public AddressService(IDataManager dataManager, IRandomNumberGenerator randomNumberGenerator)
         {
             _dataManager = dataManager;
-            _streetNames.AddRange(dataManager.GetData(DataType.Street).Split('\n'));
-            _USAddressRange = new Range(0, _addressesUs.Count - 1);
+            _streetNames  = dataManager.GetData(DataType.Street).Split('\n');
             _randomNumberGenerator = randomNumberGenerator;
         }
         
@@ -27,8 +24,8 @@ namespace WholeKitAndCaboodle
 
         public string Street()
         {
-            var  index = _randomNumberGenerator.GetRandomIntegerBetween(0, 1345);
-            return "";
+            var  index = _randomNumberGenerator.GetRandomIntegerBetween(0,  _streetNames.Length -1);
+            return _streetNames[index];
         }
     }    
 }
