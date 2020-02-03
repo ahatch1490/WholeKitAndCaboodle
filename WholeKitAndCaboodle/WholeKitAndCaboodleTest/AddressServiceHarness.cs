@@ -1,4 +1,5 @@
 using System;
+using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
 using Xunit;
 using Moq;
 using Shouldly;
@@ -22,6 +23,17 @@ namespace WholeKitAndCaboodleTest
         {
             var addressService = new AddressService(new DataManager(), new RandomNumberGenerator());
             addressService.Street().ShouldNotBeNull();
+        }
+
+        [Fact]
+        public void ShouldReturnAFullAddress()
+        {
+            var addressService = new AddressService(new DataManager(), new RandomNumberGenerator());
+            addressService.Street().ShouldNotBeNull();
+            addressService.GetAddressNumber().ShouldNotBeNull();
+            addressService.GetCity().ShouldNotBeNull();
+            addressService.GetStateAbbreviation().ShouldNotBeNull();
+            addressService.GetZip().ShouldNotBeNull();
         }
         
     }

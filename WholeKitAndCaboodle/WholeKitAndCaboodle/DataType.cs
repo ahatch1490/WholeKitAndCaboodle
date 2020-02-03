@@ -7,5 +7,7 @@ namespace WholeKitAndCaboodle
         Email = 2,
         Vehicle = 3,
         Street = 4,
+        City = 5,
+        AbbStates = 6,
     }
 }
