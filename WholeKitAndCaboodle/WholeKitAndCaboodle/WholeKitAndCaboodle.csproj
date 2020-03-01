@@ -34,7 +34,7 @@
 
     <ItemGroup>
       <None Remove="data\AreaCode.csv" />
-      <Resource Include="data\AreaCode.csv" />
+      <EmbeddedResource Include="data\AreaCode.csv" />
     </ItemGroup>
 
 </Project>

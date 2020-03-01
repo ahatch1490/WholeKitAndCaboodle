@@ -41,5 +41,13 @@ namespace WholeKitAndCaboodleTest
             var areaCode =  service.GetAreaCode();
             areaCode.ShouldBe("222");
         }
+        
+        [Fact]
+        public void ShouldJustReturnPhoneNumber()
+        {
+            var service = new PhoneNumberService(new DataManager(), new RandomNumberGenerator());
+            var actual = service.GetUSPhoneNumber();
+            actual.Length.ShouldBe(12);
+        }
     }
 }
