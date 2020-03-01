@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Xml.Xsl;
 
 namespace WholeKitAndCaboodle
 {
@@ -11,7 +14,7 @@ namespace WholeKitAndCaboodle
         private  string [] _streetNames;
         private  string[] _cities;
         private string[] _abbreviatedStates;
-
+        private Dictionary<string,string> _zips;
         public AddressService(IDataManager dataManager, IRandomNumberGenerator randomNumberGenerator)
         {
             _dataManager = dataManager;
@@ -38,7 +41,22 @@ namespace WholeKitAndCaboodle
 
         public string GetZip()
         {
-            return _randomNumberGenerator.GetRandomIntegerBetween(0, 9999).ToString();
+            var zips = GetZips();
+            var index = _randomNumberGenerator.GetRandomIntegerBetween(0, _zips.Values.Count-1);
+            return FormatZip(_zips.Values.ToArray()[index]);
+        }
+        public string GetZip(string state)
+        {
+            var zips = GetZips();
+            var zip = zips[state];
+            return FormatZip(zip);
+        }
+
+        private string FormatZip(string zipTemplate)
+        {
+            //TODO need to change this to use string formatting
+            var value = _randomNumberGenerator.GetRandomIntegerBetween(0, 99).ToString("00");
+            return zipTemplate.Replace("##", value);
         }
 
         public string GetCity()
@@ -64,6 +82,21 @@ namespace WholeKitAndCaboodle
             }
             var  index = _randomNumberGenerator.GetRandomIntegerBetween(0,  _cities.Length -1);
             return _cities[index];
+        }
+
+        private Dictionary<string,string> GetZips()
+        {
+            if (_zips != null) return _zips;
+            
+            var zipList = _dataManager.GetData(DataType.ZipCode).Split('\n');
+            _zips = new Dictionary<string, string>();
+            foreach (var zip in zipList)
+            {
+                var data = zip.Split(',');
+                _zips.Add(data[0],data[1]);
+            }
+
+            return _zips;
         }
     }    
 }

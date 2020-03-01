@@ -26,6 +26,8 @@
       <None Remove="data\Cities.csv" />
       <None Remove="data\City.csv" />
       <EmbeddedResource Include="data\City.csv" />
+      <None Remove="data\ZipCode.csv" />
+      <EmbeddedResource Include="data\ZipCode.csv" />
     </ItemGroup>
 
     <ItemGroup>

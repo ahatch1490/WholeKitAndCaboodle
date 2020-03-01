@@ -8,7 +8,8 @@ namespace WholeKitAndCaboodle
         Vehicle = 3,
         Street = 4,
         City = 5,
-        AbbStates = 6,
-        AreaCode =7,
+        ZipCode = 6,
+        AbbStates = 7,
+        AreaCode =8,
     }
 }

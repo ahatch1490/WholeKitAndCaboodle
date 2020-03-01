@@ -36,5 +36,21 @@ namespace WholeKitAndCaboodleTest
             addressService.GetZip().ShouldNotBeNull();
         }
         
+        [Fact]
+        public void ShouldGetZip()
+        {
+            var addressService = new AddressService(new DataManager(), new RandomNumberGenerator());
+            addressService.GetZip().ShouldNotBeNull();
+        }
+        
+        
+        [Fact]
+        public void ShouldGetZipByState()
+        {
+            var addressService = new AddressService(new DataManager(), new RandomNumberGenerator());
+            var zip = addressService.GetZip("WA");
+            zip.ShouldContain("990");
+        }
+        
     }
 }
