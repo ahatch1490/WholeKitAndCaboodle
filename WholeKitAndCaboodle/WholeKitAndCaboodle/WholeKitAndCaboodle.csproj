@@ -32,4 +32,9 @@
       <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="data\AreaCode.csv" />
+      <Resource Include="data\AreaCode.csv" />
+    </ItemGroup>
+
 </Project>

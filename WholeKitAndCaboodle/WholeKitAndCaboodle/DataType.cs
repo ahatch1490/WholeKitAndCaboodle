@@ -9,5 +9,6 @@ namespace WholeKitAndCaboodle
         Street = 4,
         City = 5,
         AbbStates = 6,
+        AreaCode =7,
     }
 }
