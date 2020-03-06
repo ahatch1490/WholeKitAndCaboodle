@@ -16,5 +16,15 @@ namespace WholeKitAndCaboodleTest
             var rgb = service.GetRGBColorArray();
             rgb.Length.ShouldBe(3);
         }
+
+        [Fact]
+        public void ShouldReturnHex()
+        {
+            var service = new ColorService(_randomNumberGenerator);
+            var hex = service.GetHexColor();
+            hex.ShouldStartWith("#");
+            hex.Length.ShouldBe(7);
+              
+        }
     }
 }
