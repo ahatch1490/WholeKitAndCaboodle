@@ -1,15 +1,19 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace WholeKitAndCaboodle
 {
     public class ColorService
     {
         private readonly IRandomNumberGenerator _randomNumberGenerator;
+        private readonly IDataManager _dataManager;
         private readonly Random _random;
-        public ColorService(IRandomNumberGenerator randomNumberGenerator)
+        private string[] _colors;
+        public ColorService(IDataManager dataManager, IRandomNumberGenerator randomNumberGenerator)
         {
             _random = new Random();
             _randomNumberGenerator = randomNumberGenerator;
+            _dataManager = dataManager;
         }
         
         public int GetRGBColorPart()
@@ -25,6 +29,16 @@ namespace WholeKitAndCaboodle
         public string GetHexColor()
         { 
             return $"#{_random.Next(0x1000000):X6}";
+        }
+
+        public string GetColorName()
+        {
+            if (_colors is null)
+            {
+                var data = _dataManager.GetData(DataType.Color);
+                _colors = data.Split('\n');
+            }
+            return _colors[_randomNumberGenerator.GetRandomIntegerBetween(0,_colors.Length -1)];
         }
     }
 }

@@ -5,6 +5,12 @@ namespace WholeKitAndCaboodle
 {
     public class RandomNumberGenerator: IRandomNumberGenerator
     {
+
+        public int GetRandomIntegerBetween(Range range)
+        {
+            return GetRandomIntegerBetween(range.Start, range.End);
+        }
+        
         public int GetRandomIntegerBetween(int first, int second)
         {
             var random = new System.Random();

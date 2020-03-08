@@ -6,6 +6,7 @@ namespace WholeKitAndCaboodle
     {
         List<int> GetListOfNumbers(int size, Range range);
         int GetRandomIntegerBetween(int first, int second);
+        int GetRandomIntegerBetween(Range range);
         char GetRandomLetterUpper();
         char GetRandomLetterLower();
     }
