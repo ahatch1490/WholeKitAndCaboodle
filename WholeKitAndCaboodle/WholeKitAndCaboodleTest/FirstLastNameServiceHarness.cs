@@ -12,6 +12,17 @@ namespace WholeKitAndCaboodleTest
         private Mock<IRandomNumberGenerator> _randomNumberGenerator = new Mock<IRandomNumberGenerator>();
 
         [Fact]
+        public void ShouldReturnFirstName()
+        {
+            var firstnames = $"firstname,lastname{Environment.NewLine}firstname1,lastname1";
+            _dataManager.Setup(x => x.GetData(It.IsAny<DataType>())).Returns(firstnames);
+            var service = new FirstLastNameService(_dataManager.Object, _randomNumberGenerator.Object);
+            var actual = service.GetFirstName();
+            actual.ShouldNotBeNull();
+            firstnames.ShouldContain(actual);
+        }
+        
+        [Fact]
         public void ShouldReturnListOfFirstNames()
         {
             var firstnames = $"firstname,lastname{Environment.NewLine}firstname1,lastname1";
@@ -32,6 +43,16 @@ namespace WholeKitAndCaboodleTest
             actual.Count.ShouldBeGreaterThanOrEqualTo(2);
         }
 
+        [Fact]
+        public void ShouldReturnLastName()
+        {
+            var lastname = $"firstname,lastname{Environment.NewLine}firstname1,lastname1";
+            _dataManager.Setup(x => x.GetData(It.IsAny<DataType>())).Returns(lastname);
+            var service = new FirstLastNameService(_dataManager.Object, _randomNumberGenerator.Object);
+            var actual = service.GetLastName();
+            actual.ShouldNotBeNull();
+            lastname.ShouldContain(actual);
+        }
         [Fact]
         public void ShouldReturnListOfLastNames()
         {
