@@ -53,6 +53,16 @@ namespace WholeKitAndCaboodleTest
             var zip = addressService.GetZip("WA");
             zip.ShouldContain("990");
         }
+
+        [Fact]
+        public void ShouldGetValesFromFacade()
+        {
+            USAddress.GetStreet().Length.ShouldBeGreaterThan(0);
+            USAddress.GetStateAbbreviation().Length.ShouldBe(2);
+            USAddress.GetZipCode().Length.ShouldBe(5);
+            USAddress.GetCityCode().Length.ShouldBeGreaterThan(0);
+            USAddress.GetAddressNumber().Length.ShouldBeGreaterThan(0); 
+        }
         
     }
 }

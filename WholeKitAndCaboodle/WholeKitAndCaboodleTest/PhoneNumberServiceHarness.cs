@@ -62,5 +62,13 @@ namespace WholeKitAndCaboodleTest
             var areaCode =  service.GetAreaCode();
             areaCode.ShouldBe("222");
         }
+
+        [Fact]
+        public void ShouldBeAbleToCallFromFacade()
+        {
+            var phone = PhoneNumber.GetTenDigitPhoneNumber();
+            phone.Length.ShouldBe(10);
+        }
+        
     }
 }

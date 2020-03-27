@@ -75,5 +75,12 @@ namespace WholeKitAndCaboodleTest
             var actual = service.GetLastNames();
             actual.Count.ShouldBeGreaterThanOrEqualTo(2);
         }
+
+        [Fact]
+        public void ShouldHandleFacade()
+        {
+            Name.GetFirstName().Length.ShouldBeGreaterThan(0);
+            Name.GetLastName().Length.ShouldBeGreaterThan(0);
+        }
     }
 }

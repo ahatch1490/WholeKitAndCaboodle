@@ -20,11 +20,6 @@ namespace WholeKitAndCaboodle
             return _service.Street();
         }
 
-        public static string GetStreet()
-        {
-            return Context.GetStreetContext();
-        }
-
         private string GetZipCodeContext()
         {
             return _service.GetZip();
@@ -38,11 +33,6 @@ namespace WholeKitAndCaboodle
         private string GetCityContext()
         {
             return _service.GetCity();
-        }
-        
-        private string GetStateContext()
-        {
-            return _service.GetState();
         }
         
         private string GetStateAbbreviationContext()
@@ -59,15 +49,19 @@ namespace WholeKitAndCaboodle
         {
             return Context.GetCityContext();
         }
-        
-        public static string GetStateCode()
-        {
-            return Context.GetStateContext();
-        }
-        
         public static string GetStateAbbreviation()
         {
             return Context.GetStateAbbreviationContext();
+        }
+        
+        public static string GetStreet()
+        {
+            return Context.GetStreetContext();
+        }
+
+        public static string GetAddressNumber()
+        {
+            return Context.GetAddressNumberContext();
         }
         
     }

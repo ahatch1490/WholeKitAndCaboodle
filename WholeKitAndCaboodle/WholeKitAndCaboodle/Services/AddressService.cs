@@ -67,19 +67,14 @@ namespace WholeKitAndCaboodle.Services
             return _cities[index];
         }
 
-        public string GetState()
-        {
-            throw new NotImplementedException();
-        }
-
         public string GetStateAbbreviation()
         {
             if (_abbreviatedStates == null)
             {
                 _abbreviatedStates = _dataManager.GetData(DataType.AbbStates).Split('\n');
             }
-            var  index = _randomNumberGenerator.GetRandomIntegerBetween(0,  _cities.Length -1);
-            return _cities[index];
+            var  index = _randomNumberGenerator.GetRandomIntegerBetween(0,  _abbreviatedStates.Length -1);
+            return _abbreviatedStates[index];
         }
 
         private Dictionary<string,string> GetZips()

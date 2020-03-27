@@ -22,7 +22,9 @@
       <None Remove="data\Streets.csv" />
       <EmbeddedResource Include="data\Street.csv" />
       <None Remove="data\AbbStates.csv" />
-      <EmbeddedResource Include="data\AbbStates.csv" />
+      <EmbeddedResource Include="data\AbbStates.csv">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
       <None Remove="data\Cities.csv" />
       <None Remove="data\City.csv" />
       <EmbeddedResource Include="data\City.csv" />
