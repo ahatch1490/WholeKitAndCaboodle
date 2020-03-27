@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Xml;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using WholeKitAndCaboodle.Models;
 
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Common
 {
     public class DataManager: IDisposable, IDataManager
     {
@@ -28,7 +26,7 @@ namespace WholeKitAndCaboodle
         public List<AddressUS> GetAddressesDataUS()
         {
             var address = new List<AddressUS>();
-            var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
+            var assembly = typeof(DataManager).GetTypeInfo().Assembly;
             Stream resource = assembly.GetManifestResourceStream("WholeKitAndCaboodle.data.us_address.json");
             using (var reader =
                 new System.IO.StreamReader(resource ?? throw new NullReferenceException("unable to locate us_address")))
@@ -50,7 +48,7 @@ namespace WholeKitAndCaboodle
         public List<UserProfile> GetProfiles()
         {
             var profiles = new List<UserProfile>();
-            var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
+            var assembly = typeof(DataManager).GetTypeInfo().Assembly;
             Stream resource = assembly.GetManifestResourceStream("WholeKitAndCaboodle.data.profile.json");
             using (var reader =
                 new System.IO.StreamReader(resource ?? throw new NullReferenceException("unable to locate profile")))
@@ -65,7 +63,7 @@ namespace WholeKitAndCaboodle
         private List<UserProfile> GetData()
         {
             var profiles = new List<UserProfile>();
-            var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
+            var assembly = typeof(DataManager).GetTypeInfo().Assembly;
             Stream resource = assembly.GetManifestResourceStream("WholeKitAndCaboodle.data.basedata.json");
             using (var reader =
                 new System.IO.StreamReader(resource ?? throw new NullReferenceException("unable to locate profile")))
@@ -91,7 +89,7 @@ namespace WholeKitAndCaboodle
 
         private void BuildMemoryStream()
         {
-            var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
+            var assembly = typeof(DataManager).GetTypeInfo().Assembly;
             using (Stream resource = assembly.GetManifestResourceStream("WholeKitAndCaboodle.data.us_address.json"))
             {
                 using (var reader =
@@ -106,7 +104,7 @@ namespace WholeKitAndCaboodle
         private string GetDataString(DataType dataType)
         {
             var data = string.Empty;
-            var assembly = typeof(WholeKitAndCaboodle.DataManager).GetTypeInfo().Assembly;
+            var assembly = typeof(DataManager).GetTypeInfo().Assembly;
             Stream resource = assembly.GetManifestResourceStream($"WholeKitAndCaboodle.data.{dataType.ToString()}.csv");
             using (var reader =
                 new System.IO.StreamReader(resource ?? throw new NullReferenceException($"unable to locate '{dataType.ToString()}'")))

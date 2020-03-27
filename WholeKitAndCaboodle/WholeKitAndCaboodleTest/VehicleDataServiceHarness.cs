@@ -4,6 +4,8 @@ using Xunit;
 using WholeKitAndCaboodle;
 using Shouldly;
 using System.Linq;
+using WholeKitAndCaboodle.Common;
+using WholeKitAndCaboodle.Services;
 
 namespace WholeKitAndCaboodleTest
 {

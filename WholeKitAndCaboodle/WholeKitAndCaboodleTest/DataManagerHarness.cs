@@ -1,5 +1,6 @@
 using Shouldly;
 using WholeKitAndCaboodle;
+using WholeKitAndCaboodle.Common;
 using Xunit;
 namespace WholeKitAndCaboodleTest
 {

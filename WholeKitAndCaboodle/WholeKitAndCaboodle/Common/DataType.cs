@@ -1,5 +1,4 @@
-﻿using System;
-namespace WholeKitAndCaboodle
+﻿namespace WholeKitAndCaboodle.Common
 {
     public enum DataType
     {

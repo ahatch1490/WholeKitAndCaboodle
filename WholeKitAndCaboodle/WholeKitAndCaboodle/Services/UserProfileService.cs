@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using WholeKitAndCaboodle.Common;
+using WholeKitAndCaboodle.Models;
 
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Services
 {
     public class UserProfileService
     {

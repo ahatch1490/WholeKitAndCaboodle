@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using WholeKitAndCaboodle.Common;
+using WholeKitAndCaboodle.Models;
 
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Services
 {
     public class VehicleDataService
     {

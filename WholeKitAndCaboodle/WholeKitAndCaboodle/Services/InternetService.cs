@@ -1,7 +1,6 @@
-using System.Linq;
-using WholeKitAndCaboodle;
+using WholeKitAndCaboodle.Common;
 
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Services
 {
     public class InternetService
     {

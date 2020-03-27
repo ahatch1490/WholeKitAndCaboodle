@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Common
 {
     [Serializable]
     public class MaxVehicleRangeException : Exception

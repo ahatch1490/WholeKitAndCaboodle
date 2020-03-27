@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using WholeKitAndCaboodle.Common;
 
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Services
 {
     public class FirstLastNameService
     {

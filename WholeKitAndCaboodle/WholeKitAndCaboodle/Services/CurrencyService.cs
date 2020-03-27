@@ -1,7 +1,6 @@
-using System;
-using System.Net.NetworkInformation;
+using WholeKitAndCaboodle.Common;
 
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Services
 {
     public class CurrencyService
     {

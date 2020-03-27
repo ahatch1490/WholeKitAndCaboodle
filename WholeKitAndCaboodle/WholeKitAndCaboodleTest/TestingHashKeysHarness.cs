@@ -11,6 +11,8 @@ using Xunit;
 using RandomNumberGenerator = WholeKitAndCaboodle.RandomNumberGenerator;
 using Newtonsoft.Json;
 using Shouldly;
+using WholeKitAndCaboodle.Common;
+using WholeKitAndCaboodle.Services;
 
 namespace WholeKitAndCaboodleTest
 {
@@ -44,7 +46,7 @@ namespace WholeKitAndCaboodleTest
                 //var sha = SHA1.Create();
             for (var i = 0; i < numberToCreate; i++)
             {
-                var lead = new Lead(nameService.GetFirstName(), nameService.GetLastName(), phoneService.GetUSPhoneNumber() );
+                var lead = new Lead(nameService.GetFirstName(), nameService.GetLastName(), phoneService.GetTenDigitPhoneNumber() );
                 _data.Add(lead.hash,lead);
                 
             }

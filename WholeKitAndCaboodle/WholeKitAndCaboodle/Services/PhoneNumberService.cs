@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Net.NetworkInformation;
-using System.Runtime.InteropServices;
+using WholeKitAndCaboodle.Common;
 
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Services
 {
     public class PhoneNumberService
     {
@@ -29,7 +25,15 @@ namespace WholeKitAndCaboodle
             _dataManager = dataManager;
             _randomNumberGenerator = randomNumberGenerator;
         }
-        public string GetUSPhoneNumber()
+        
+        public string GetTenDigitPhoneNumber()
+        {
+            var areaCode = GetAreaCode();
+            var prefix = _randomNumberGenerator.GetRandomIntegerBetween(100, 999);
+            var postfix =  _randomNumberGenerator.GetRandomIntegerBetween(0, 9999).ToString("0000");
+            return $"{areaCode}{prefix}{postfix}";
+        }
+        public string GetDashedUSPhoneNumber()
         {
             var areaCode = GetAreaCode();
             var prefix = _randomNumberGenerator.GetRandomIntegerBetween(100, 999);

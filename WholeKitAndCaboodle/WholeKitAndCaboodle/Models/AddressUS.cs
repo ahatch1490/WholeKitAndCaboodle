@@ -1,4 +1,4 @@
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Models
 {
     public class AddressUS
     {

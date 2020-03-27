@@ -2,6 +2,8 @@ using System.Globalization;
 using Moq;
 using Shouldly;
 using WholeKitAndCaboodle;
+using WholeKitAndCaboodle.Common;
+using WholeKitAndCaboodle.Services;
 using Xunit;
 
 namespace WholeKitAndCaboodleTest

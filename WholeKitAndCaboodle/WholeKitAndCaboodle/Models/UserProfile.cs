@@ -1,6 +1,4 @@
-using System.Security;
-
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Models
 {
     public class UserProfile
     {

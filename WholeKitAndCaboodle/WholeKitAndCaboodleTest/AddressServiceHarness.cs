@@ -4,6 +4,8 @@ using Xunit;
 using Moq;
 using Shouldly;
 using WholeKitAndCaboodle;
+using WholeKitAndCaboodle.Common;
+using WholeKitAndCaboodle.Services;
 
 namespace WholeKitAndCaboodleTest
 {

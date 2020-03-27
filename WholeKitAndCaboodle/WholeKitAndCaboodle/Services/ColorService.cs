@@ -1,7 +1,7 @@
 using System;
-using System.Runtime.CompilerServices;
+using WholeKitAndCaboodle.Common;
 
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Services
 {
     public class ColorService
     {

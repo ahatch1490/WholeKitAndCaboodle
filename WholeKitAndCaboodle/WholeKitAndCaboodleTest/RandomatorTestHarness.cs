@@ -1,7 +1,7 @@
 using Shouldly;
 using WholeKitAndCaboodle;
 using Xunit;
-using Range = WholeKitAndCaboodle.Range;
+using Range = WholeKitAndCaboodle.Common.Range;
 
 namespace WholeKitAndCaboodleTest
 {

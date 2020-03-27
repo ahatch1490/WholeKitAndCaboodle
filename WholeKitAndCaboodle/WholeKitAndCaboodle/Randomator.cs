@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using WholeKitAndCaboodle.Common;
+using WholeKitAndCaboodle.Models;
+using WholeKitAndCaboodle.Services;
 
 namespace WholeKitAndCaboodle
 {

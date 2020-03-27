@@ -1,4 +1,4 @@
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Common
 {
     public class Range
     {

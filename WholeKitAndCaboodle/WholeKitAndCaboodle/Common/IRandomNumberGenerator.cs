@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WholeKitAndCaboodle
+namespace WholeKitAndCaboodle.Common
 {
     public interface IRandomNumberGenerator
     {

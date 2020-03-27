@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using Moq;
 using Shouldly;
 using WholeKitAndCaboodle;
+using WholeKitAndCaboodle.Common;
 using Xunit;
 
 namespace WholeKitAndCaboodleTest

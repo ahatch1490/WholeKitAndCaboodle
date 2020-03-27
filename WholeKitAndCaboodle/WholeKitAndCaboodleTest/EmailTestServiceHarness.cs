@@ -4,6 +4,9 @@ using Moq;
 using WholeKitAndCaboodle;
 using Xunit;
 using Shouldly;
+using WholeKitAndCaboodle.Common;
+using WholeKitAndCaboodle.Services;
+
 namespace WholeKitAndCaboodleTest
 {
     public class EmailTestServiceHarness
