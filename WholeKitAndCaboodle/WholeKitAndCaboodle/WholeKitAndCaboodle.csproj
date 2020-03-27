@@ -2,6 +2,18 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageId>WholeKitAndCaboodle</PackageId>
+        <PackageVersion>0.1.0.0</PackageVersion>
+        <Authors>Anthony Hatch</Authors>
+        <Description>Handy library for adding random data for testing.
+        </Description>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageReleaseNotes>
+            First Release
+        </PackageReleaseNotes>
+        <PackageTags>test testing moq mock stub data</PackageTags>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+        <FileVersion>0.1.0.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
