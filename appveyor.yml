@@ -7,3 +7,4 @@ build:
   project: WholeKitAndCaboodle/WholeKitAndCaboodle.sln
   parallel: true
   verbosity: minimal
+  publish_nuget: true
