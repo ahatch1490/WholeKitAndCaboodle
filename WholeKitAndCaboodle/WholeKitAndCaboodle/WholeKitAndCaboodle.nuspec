@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>WholeKitAndCaboodle</id>
+    <version>0.1.2</version>
+    <title>WholeKitAndCaboodle</title>
+    <authors>Anthony Hatch</authors>
+    <owners>Anthony Hatch</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/ahatch1490/WholeKitAndCaboodle</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Helper library to dry up common data for testing</description>
+    <releaseNotes>Adding .nuspec file</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>facker test testing moq mock-data stub data</tags>
+  </metadata>
+</package>
