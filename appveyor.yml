@@ -4,6 +4,6 @@ clone_folder: c:\projects\WholeKitAndCaboodle
 before_build:
 - cmd: nuget restore WholeKitAndCaboodle\WholeKitAndCaboodle.sln
 build:
-  project: WholeKitAndCaboodle/WholeKitAndCaboodle/WholeKitAndCaboodle/WholeKitAndCaboodle.sln
+  project: WholeKitAndCaboodle/WholeKitAndCaboodle.sln
   parallel: true
   verbosity: minimal
