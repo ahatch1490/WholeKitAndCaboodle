@@ -43,6 +43,8 @@
       <EmbeddedResource Include="data\City.csv" />
       <None Remove="data\ZipCode.csv" />
       <EmbeddedResource Include="data\ZipCode.csv" />
+      <None Remove="data\Color.csv" />
+      <EmbeddedResource Include="data\Color.csv" />
     </ItemGroup>
 
     <ItemGroup>

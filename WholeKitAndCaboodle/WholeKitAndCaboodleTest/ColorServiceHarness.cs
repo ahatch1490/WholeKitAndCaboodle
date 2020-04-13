@@ -41,5 +41,17 @@ namespace WholeKitAndCaboodleTest
             colors.ShouldContain(name);
             name.Length.ShouldBe(6);
         }
+
+        [Fact]
+        public void ShouldReturnColorNameFromStaticMethod()
+        {
+            Color.GetColorName().Length.ShouldBeGreaterThan(1);
+        }
+        
+        [Fact]
+        public void ShouldReturnColorHexFromStaticMethod()
+        {
+            Color.GetHexColor().Length.ShouldBeGreaterThan(1);
+        }
     }
 }
