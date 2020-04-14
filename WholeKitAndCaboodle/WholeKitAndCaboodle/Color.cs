@@ -34,5 +34,15 @@ namespace WholeKitAndCaboodle
         {
             return Context.GetColorNameContext();
         }
+
+        private int[] GetRGBColorArrayContext()
+        {
+            return _service.GetRGBColorArray();
+        }
+
+        public static int[] GetRGBColorArray()
+        {
+            return Context.GetRGBColorArrayContext();
+        }
     }
 }

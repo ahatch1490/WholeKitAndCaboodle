@@ -15,8 +15,8 @@ namespace WholeKitAndCaboodle.Services
             _randomNumberGenerator = randomNumberGenerator;
             _dataManager = dataManager;
         }
-        
-        public int GetRGBColorPart()
+
+        private int GetRGBColorPart()
         {
             return (_randomNumberGenerator.GetRandomIntegerBetween(0, 255));
         }

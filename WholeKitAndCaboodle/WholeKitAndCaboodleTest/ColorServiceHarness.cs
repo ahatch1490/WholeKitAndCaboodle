@@ -53,5 +53,11 @@ namespace WholeKitAndCaboodleTest
         {
             Color.GetHexColor().Length.ShouldBeGreaterThan(1);
         }
+        
+        [Fact]
+        public void ShouldReturnColorArrayFromStaticMethod()
+        {
+            Color.GetRGBColorArray().Length.ShouldBe(3);
+        }
     }
 }
