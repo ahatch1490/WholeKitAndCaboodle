@@ -23,5 +23,16 @@ namespace WholeKitAndCaboodle.Services
             };
             return string.Join(".",array);
         }
+
+        public string GetUserName(string separator = "")
+        {
+            return $"{Name.GetFirstName()[0]}{separator}{Name.GetLastName()}";
+        }
+
+
+        public string GetInvalidEmailAddress()
+        {
+            return $"{GetUserName()}@example.com";
+        }
     }
 }

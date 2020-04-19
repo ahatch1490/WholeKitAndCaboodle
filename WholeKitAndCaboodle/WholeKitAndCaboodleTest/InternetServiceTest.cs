@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Channels;
 using Moq;
 using Shouldly;
@@ -24,6 +25,28 @@ namespace WholeKitAndCaboodleTest
             var service = new InternetService(_dataManager.Object, _mockRandomGenerator.Object);
             var ip = service.GetIPV4();
             ip.ShouldBe("255.255.255");
+        }
+
+        [Fact]
+        public void ShouldReturnAUsername()
+        {
+            var service = new InternetService(new DataManager(),  new RandomNumberGenerator());
+
+            service.GetUserName().Length.ShouldBeGreaterThan(0);
+        }
+
+        [Fact]
+        public void ShouldReturnStringIncludingSeparators()
+        {
+            var service = new InternetService(new DataManager(), new RandomNumberGenerator());
+            service.GetUserName("--").ShouldContain("--");
+        }
+
+        [Fact]
+        public void ShouldReturnGetInvalidExampleEmailAddress()
+        {
+            var service = new InternetService(new DataManager(), new RandomNumberGenerator());
+            service.GetInvalidEmailAddress().ShouldContain("@example.com");
         }
     }
 }
