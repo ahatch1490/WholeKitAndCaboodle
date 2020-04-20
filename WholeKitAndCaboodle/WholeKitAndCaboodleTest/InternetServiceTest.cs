@@ -7,6 +7,7 @@ using WholeKitAndCaboodle;
 using WholeKitAndCaboodle.Common;
 using WholeKitAndCaboodle.Services;
 using Xunit;
+using Xunit.Sdk;
 
 namespace WholeKitAndCaboodleTest
 {
@@ -48,5 +49,45 @@ namespace WholeKitAndCaboodleTest
             var service = new InternetService(new DataManager(), new RandomNumberGenerator());
             service.GetInvalidEmailAddress().ShouldContain("@example.com");
         }
+        [Fact]
+        public void ShouldReturnRandomPassword()
+        {
+            var service = new InternetService(new DataManager(), new RandomNumberGenerator());
+            service.GetPassword().Length.ShouldBeGreaterThan(0);
+        }
+        [Fact]
+        public void ShouldHaveDefaultLengthOfEight()
+        {
+            var service = new InternetService(new DataManager(), new RandomNumberGenerator());
+            service.GetPassword().Length.ShouldBe(8);
+        }
+        
+        [Fact]
+        public void ShouldBeAbleToSetLength()
+        {
+            const int expected = 9;
+            var service = new InternetService(new DataManager(), new RandomNumberGenerator());
+            service.GetPassword(expected).Length.ShouldBe(expected);
+        }
+        
+        [Fact]
+        public void ShouldBeAbleToMakeUpper()
+        {
+            var service = new InternetService(new DataManager(), new RandomNumberGenerator());  
+            var actual = service.GetPassword(casing: "upper");
+            var expected = actual.ToUpper();
+            actual.ShouldMatch(expected);
+        }
+        
+        [Fact]
+        public void ShouldBeAbleToMakeLower()
+        {
+            var service = new InternetService(new DataManager(), new RandomNumberGenerator());  
+            var actual = service.GetPassword(casing: "lower");
+            var expected = actual.ToLower();
+            actual.ShouldMatch(expected);
+        }
+
+
     }
 }
