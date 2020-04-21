@@ -11,5 +11,6 @@
         AbbStates = 7,
         AreaCode =8,
         Color = 9,
+        LoremIpsum = 10,
     }
 }

@@ -45,6 +45,8 @@
       <EmbeddedResource Include="data\ZipCode.csv" />
       <None Remove="data\Color.csv" />
       <EmbeddedResource Include="data\Color.csv" />
+      <None Remove="data\LoremIpsum.csv" />
+      <EmbeddedResource Include="data\LoremIpsum.csv" />
     </ItemGroup>
 
     <ItemGroup>
