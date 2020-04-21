@@ -45,7 +45,6 @@ namespace WholeKitAndCaboodle
         {
             return Context.GetPasswordContext(length);
         }
-        
         public static string GetPasswordUpper(int length =8)
         {
             return Context.GetPasswordContext(length,"upper");
@@ -53,6 +52,16 @@ namespace WholeKitAndCaboodle
         public static string GetPasswordLower(int length =8)
         {
             return Context.GetPasswordContext(length,"lower");
+        }
+        
+        private string GetEmailInvalidContext()
+        {
+            return _service.GetInvalidEmailAddress();
+        }
+
+        public static string GetEmailInvalid()
+        {
+            return Context.GetEmailInvalidContext();
         }
     }
 }
