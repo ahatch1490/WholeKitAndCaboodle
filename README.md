@@ -22,9 +22,10 @@ $> dotent test
 - Need to add this still.
 ## Built With
 
-* [Codacy](https://www.codacy.com) Code Analytics         
+* [Codacy](https://www.codacy.com) Code Analytics 
 * [Nuget](https://nuget.com) - Dependency Management
-* [AppVoyer](https://ci.appveyor.com) - CI 
+* [AppVoyer](https://ci.appveyor.com) - CI [![Build status](https://ci.appveyor.com/api/projects/status/qt96v1glhrn9i0dk/branch/master?svg=true)](https://ci.appveyor.com/project/ahatch1490/wholekitandcaboodle/branch/master)
+
 * [CSVKit](https://csvkit.readthedocs.io/en/latest/) - Commandline CSV Tool Set
 
 ## Authors
