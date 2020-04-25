@@ -16,5 +16,11 @@ namespace WholeKitAndCaboodleTest
             var actual = service.GetParagraph();
             actual.Length.ShouldBeGreaterThan(20);
         }
+        
+        [Fact]
+        public void ShouldHandleFacade()
+        {
+            LoremIpsum.GetParagraph().Length.ShouldBeGreaterThan(20);
+        }
     }
 }
