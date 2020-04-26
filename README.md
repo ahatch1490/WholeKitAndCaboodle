@@ -22,7 +22,7 @@ $> dotent test
 - Need to add this still.
 ## Built With
 
-* [Codacy](https://www.codacy.com) Code Analytics 
+* [Codacy](https://www.codacy.com) Code Analytics [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1a507dd31b24167bfddbd43a815bda4)](https://www.codacy.com/manual/ahatch1490/WholeKitAndCaboodle?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ahatch1490/WholeKitAndCaboodle&amp;utm_campaign=Badge_Grade)
 * [Nuget](https://nuget.com) - Dependency Management
 * [AppVoyer](https://ci.appveyor.com) - CI [![Build status](https://ci.appveyor.com/api/projects/status/qt96v1glhrn9i0dk/branch/master?svg=true)](https://ci.appveyor.com/project/ahatch1490/wholekitandcaboodle/branch/master)
 
