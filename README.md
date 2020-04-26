@@ -1,6 +1,7 @@
 # WholeKitAndCaboodle
 
 Helper library to dry up common data for testing
+[Nuget Package](https://www.nuget.org/packages/WholeKitAndCaboodle/)
 
 ## Getting Started
 
