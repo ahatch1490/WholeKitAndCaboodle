@@ -5,6 +5,7 @@ using WholeKitAndCaboodle;
 using Shouldly;
 using System.Linq;
 using WholeKitAndCaboodle.Common;
+using WholeKitAndCaboodle.Models;
 using WholeKitAndCaboodle.Services;
 
 namespace WholeKitAndCaboodleTest
@@ -42,6 +43,32 @@ namespace WholeKitAndCaboodleTest
             var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator(),new PaddedValueGenerator(new RandomNumberGenerator()));
             var actual = service.GetListOfVehicleData(100);
             actual.Count.ShouldBe(100);
+        }
+        
+        [Fact]
+        public void ShouldReturnACompleteSetOfVehicleData()
+        {
+            var service = new VehicleDataService(new DataManager(), new RandomNumberGenerator(),new PaddedValueGenerator(new RandomNumberGenerator()));
+            var actual = service.GetVehicleData();
+            actual.Make.ShouldNotBeNull();
+            actual.Model.ShouldNotBeNull();
+            actual.Vin.ShouldNotBeNull();
+            actual.Milage.ShouldNotBeNull();
+            actual.Year.ShouldNotBeNull();
+            actual.RetailPrice.ShouldNotBeNull();
+        }
+        
+        [Fact]
+        public void ShouldHandleVehicleFacade()
+        {
+
+            var actual = Vehicle.GetVehicleData();
+            actual.Make.ShouldNotBeNull();
+            actual.Model.ShouldNotBeNull();
+            actual.Vin.ShouldNotBeNull();
+            actual.Milage.ShouldNotBeNull();
+            actual.Year.ShouldNotBeNull();
+            actual.RetailPrice.ShouldNotBeNull();
         }
     }
 }

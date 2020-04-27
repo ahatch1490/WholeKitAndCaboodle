@@ -1,8 +1,8 @@
 using Shouldly;
-using WholeKitAndCaboodle;
 using WholeKitAndCaboodle.Common;
 using Xunit;
-namespace WholeKitAndCaboodleTest
+
+namespace WholeKitAndCaboodleTest.Common
 {
     public class DataManagerHarness
     {

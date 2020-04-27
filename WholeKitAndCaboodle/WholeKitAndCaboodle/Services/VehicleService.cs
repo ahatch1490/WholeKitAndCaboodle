@@ -21,9 +21,9 @@ namespace WholeKitAndCaboodle.Services
         }
 
         /// <summary>
-        /// Returns the complete list of vehicles
+        /// Returns VehicleData
         /// </summary>
-        /// <returns></returns>
+        /// <returns>VehicleData</returns>
         public VehicleData  GetVehicleData()
         {
             var index = _randomNumberGenerator.GetRandomIntegerBetween(0, _vehicleData.Count -1);
@@ -64,12 +64,12 @@ namespace WholeKitAndCaboodle.Services
                 var f = c.Split(',');
 
                 var v = new VehicleData() {
-                    Vin = f[0],
-                    Milage = f[1],
-                    Year = f[2],
-                    Make = f[3],
-                    Model = f[4],
-                    RetailPrice = f[5]
+                    Vin = f[0].TrimQuotes(),
+                    Milage = f[1].TrimQuotes(),
+                    Year = f[2].TrimQuotes(),
+                    Make = f[3].TrimQuotes(),
+                    Model = f[4].TrimQuotes(),
+                    RetailPrice = f[5].TrimQuotes()
                     };
                 _vehicleData.Add(v);
             }

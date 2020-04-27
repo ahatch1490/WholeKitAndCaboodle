@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using Newtonsoft.Json.Linq;
 using WholeKitAndCaboodle.Models;
-
+[assembly: InternalsVisibleTo("WholeKitAndCaboodleTest")]
 namespace WholeKitAndCaboodle.Common
 {
     public class DataManager: IDisposable, IDataManager
